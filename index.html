@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Target PCS e-Learning</title>
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: #fcf9f2;
+            color: #333;
+            padding-bottom: 70px;
+        }
+        /* Top Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo-circle {
+            width: 35px;
+            height: 35px;
+            background-color: #1a1a1a;
+            color: #e5c158;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 15px;
+        }
+        .app-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+        .header-icons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            font-size: 18px;
+        }
+        .lang-btn {
+            background: #f2f2f2;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* Tabs Menu */
+        .tabs-container {
+            display: flex;
+            gap: 20px;
+            padding: 12px 20px;
+            background: #fff;
+            overflow-x: auto;
+            border-bottom: 1px solid #eee;
+            white-space: nowrap;
+        }
+        .tab {
+            font-size: 14px;
+            font-weight: 600;
+            color: #777;
+            cursor: pointer;
+            padding-bottom: 5px;
+        }
+        .tab.active {
+            color: #1a1a1a;
+            border-bottom: 2px solid #e5c158;
+        }
+
+        /* Sub Categories */
+        .sub-tabs {
+            display: flex;
+            gap: 15px;
+            padding: 12px 20px;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .sub-tab {
+            font-size: 13px;
+            font-weight: 600;
+            color: #555;
+            cursor: pointer;
+        }
+        .sub-tab.active {
+            color: #1a1a1a;
+            border-bottom: 2px solid #1a1a1a;
+        }
+
+        /* Test Cards Grid */
+        .cards-container {
+            padding: 10px 15px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .test-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid #f0eae1;
+        }
+        .free-badge {
+            background: #f4efe6;
+            color: #555;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 6px;
+            width: max-content;
+            margin-bottom: 8px;
+        }
+        .card-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        .card-info {
+            font-size: 11px;
+            color: #666;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .card-btn {
+            background: #f7f3e8;
+            color: #222;
+            border: none;
+            width: 100%;
+            padding: 8px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 12px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .card-btn.start {
+            background: #faefcd;
+        }
+
+        /* Bottom Banner */
+        .banner-container {
+            padding: 10px 15px;
+        }
+        .paid-banner {
+            background: #fff;
+            border: 1px solid #e5c158;
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            color: #1a1a1a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        /* Bottom Navigation Bar */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #1a1a1a;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #888;
+            font-size: 10px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .nav-item i {
+            font-size: 16px;
+            margin-bottom: 3px;
+        }
+        .nav-item.active {
+            color: #e5c158;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="logo-area">
+            <div class="logo-circle">TP</div>
+            <div class="app-title">Target PCS e-Learning</div>
+        </div>
+        <div class="header-icons">
+            <i class="fa-regular fa-sun"></i>
+            <div class="lang-btn">अ हिंदी</div>
+        </div>
+    </div>
+
+    <!-- Top Tabs -->
+    <div class="tabs-container">
+        <div class="tab active">Test</div>
+        <div class="tab">Ranking</div>
+        <div class="tab">Mistakes</div>
+        <div class="tab">Review</div>
+        <div class="tab">My results</div>
+    </div>
+
+    <!-- Sub Category Filters -->
+    <div class="sub-tabs">
+        <div class="sub-tab active">Recent</div>
+        <div class="sub-tab">Public</div>
+        <div class="sub-tab">UPPCS Revision Batch</div>
+        <div class="sub-tab">RO/ARO</div>
+    </div>
+
+    <!-- Test Cards Grid -->
+    <div class="cards-container">
+        <!-- Card 1 -->
+        <div class="test-card">
+            <div>
+                <div class="free-badge"><i class="fa-solid fa-lock-open"></i> 5 questions free</div>
+                <div class="card-title">कृषि, फसलें, पशुपालन, खनिज व ऊर्जा (25)</div>
+                <div class="card-info"><i class="fa-regular fa-file-lines"></i> 50 questions</div>
+                <div class="card-info"><i class="fa-regular fa-clock"></i> 40 min</div>
+                <div class="card-info"><i class="fa-solid fa-bullseye"></i> +1 / -0.33</div>
+                <div class="card-info"><i class="fa-solid fa-clipboard-check"></i> OMR too</div>
+            </div>
+            <button class="card-btn"><i class="fa-solid fa-lock"></i> Try 5 free</button>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="test-card">
+            <div>
+                <div class="free-badge"><i class="fa-solid fa-lock-open"></i> 5 questions free</div>
+                <div class="card-title">वैदिक सभ्यता, शैव-भागवत व हिंदू संप्रदाय (02)</div>
+                <div class="card-info"><i class="fa-regular fa-file-lines"></i> 50 questions</div>
+                <div class="card-info"><i class="fa-regular fa-clock"></i> 40 min</div>
+                <div class="card-info"><i class="fa-solid fa-bullseye"></i> +1 / -0.33</div>
+                <div class="card-info"><i class="fa-solid fa-clipboard-check"></i> OMR too</div>
+            </div>
+            <button class="card-btn start">Start test</button>
+        </div>
+    </div>
+
+    <!-- Paid Batch Banner -->
+    <div class="banner-container">
+        <div class="paid-banner">
+            <span>Join Our Paid Batch Tests</span>
+            <i class="fa-solid fa-chevron-right"></i>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+    <div class="bottom-nav">
+        <a href="#" class="nav-item active">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fa-solid fa-border-all"></i>
+            <span>Dashboard</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>Batches</span>
+        
+        </a>
+    </div>
+
+</body>
+</html>
